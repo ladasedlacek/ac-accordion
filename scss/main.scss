@@ -166,17 +166,3 @@ $black: #000;
         max-width: 860px;
     } 
 }
-
-// mobile and app
-@media only screen and (min-width: 980px){
-    .mobile #articlePage,
-    .mobileapp #articlePage{
-        max-width: 980px;
-
-        .lp-container{
-            padding-left: 32px;
-            padding-right: 32px;
-            max-width: 100%;
-        }
-    }
-}
