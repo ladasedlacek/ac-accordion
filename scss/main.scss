@@ -1,0 +1,182 @@
+/* accordion */
+// colors
+$primary: #0094E7;
+$white: #fff ;
+$black: #000;
+
+// font
+@mixin roboto{
+    font-family: 'Roboto', sans-serif;
+}
+
+.lp-accordion{
+    .lp-container{
+        max-width: 1084px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+
+        .lpFAQs{
+            margin: 0 auto;
+            padding-top: 56px;
+
+            &__wrapper{
+                background: $white;
+                border-radius: 4px;
+                text-align: left;
+                margin-bottom: 10px;
+                padding: 0 16px;
+                cursor: pointer;
+                box-shadow: 0 1px 4px rgba($color: $black, $alpha: .15);
+                height: auto;
+                transition: .15s ease-in-out;
+
+                &:hover{
+                    background-color: #f8f8f8;
+
+                    .lpFAQs__headline{
+                        color: $primary;
+                    }
+                }
+
+                &:last-of-type{
+                    margin-bottom: 0;
+                }
+            }
+
+            &__headline{
+                color: $black;
+                margin: 0;
+                @include roboto();
+                font-size: 14px;
+                font-weight: 400;
+                position: relative;
+                outline: none;
+                position: relative;
+                padding: 12px 0 12px 32px;
+                transition: .15s ease-in-out;
+
+                &::before{
+                    content: "";
+                    position: absolute;
+                    width: 20px;
+                    height: 16px;
+                    background: url("https://cdn.alza.cz/Foto/or/lp/components/ls/accordion/img/blue-arrow.svg") 50% no-repeat;
+                    background-size: cover;
+                    left: 0;
+                    top: 11px;
+                    transition: .3s ease-in-out;
+                    transform-origin: center;
+                }
+            }
+
+            .active{
+                transition: .3s ease-in-out;
+                background-color: #f8f8f8;
+
+                .lpFAQs__headline{
+                    color: $primary;
+                    font-weight: 700;
+
+                    &::before{
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            &__paragraph,
+            .lp-par{
+                color: $black;
+                @include roboto();
+                font-size: 14px;
+                font-weight: 400;
+                margin-top: 8px;
+                line-height: 1.6;
+
+                strong{
+                    font-weight: 700;
+                }
+            }
+
+            &__paragraph{
+                padding: 0 16px 24px 32px;
+                height: auto;
+            }
+
+            .lp-par{
+                padding: 0 16px 0 0;
+            }
+
+            &__link{
+                color: $primary;
+                @include roboto();
+                font-size: 14px;
+                font-weight: 400;
+                margin-top: 8px;
+                text-decoration: underline;
+                line-height: 1.6;
+                transition: .3s ease-in-out;
+
+                &:hover{
+                    color: darken($color: $primary, $amount: 7%);
+                }
+            }
+
+            &__items-wrapper{
+                padding: 0 0 16px 16px;
+
+                &--item{
+                    color: $black;
+                    @include roboto();
+                    font-size: 14px;
+                    font-weight: 400;
+                    margin-top: 8px;
+                    padding-left: 16px;
+                    line-height: 1.6;
+                    position: relative;
+                    list-style: none;
+
+                    &:first-of-type{
+                        margin-top: 0;
+                    }
+
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                        width: 4px;
+                        height: 4px;
+                        background-color: $black;
+                        border-radius: 100%;
+                    }
+
+                    strong{
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// layout-0
+.layout-0 #articlePage{
+    .lp-container{
+        max-width: 860px;
+    } 
+}
+
+// mobile and app
+@media only screen and (min-width: 980px){
+    .mobile #articlePage,
+    .mobileapp #articlePage{
+        max-width: 980px;
+
+        .lp-container{
+            padding-left: 32px;
+            padding-right: 32px;
+            max-width: 100%;
+        }
+    }
+}
